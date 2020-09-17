@@ -5,7 +5,7 @@
         </head>
         <body>
         <div class="container">
-"            <table class="table">
+           <table class="table">
             
                 <tr>
                     <th>Codigo</th>
@@ -14,8 +14,8 @@
 
                 <tr>
                 <?php foreach($programadores as $programador) : ?>
-                    <td><?=$projeto["codigo"] ?></td>
-                    <td><?=$projeto["nome"] ?></td>
+                    <td><?=$programador["Codigo"] ?></td>
+                    <td><?=$programador["Nome"] ?></td>
                 </tr>
         
             <?php endforeach ?>

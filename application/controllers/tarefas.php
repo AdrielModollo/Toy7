@@ -2,11 +2,15 @@
 class Tarefas extends CI_Controller{
 
 	public function listarTarefas () {
+		if($this->session->userdata("usuario_logado")) {
 		$this->load->model("tarefas_model");
         $tarefas = $this->tarefas_model->buscaTodos();
 
         $dados = array("tarefas" => $tarefas);
 		$this->load->view("tarefas/listarTarefas.php", $dados);
+	} else {
+		redirect("inicio/index", "refresh");
+		}
 	}
 
     public function formulario() {

@@ -2,6 +2,7 @@
 
 class Usuarios extends CI_Controller {	
     public function cadastro() {
+		if($this->session->userdata("usuario_logado")) {
 	    $usuario = array(
 	        "nome" => $this->input->post("nome"),
 	        "email" => $this->input->post("email"),
@@ -12,6 +13,9 @@ class Usuarios extends CI_Controller {
         $this->usuarios_model->salva($usuario);
 		$this->load->view("usuarios/cadastro.php");
 		
+	} else {
+		redirect("inicio/index", "refresh");
+		}
 	}
 	
 }

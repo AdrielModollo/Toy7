@@ -20,6 +20,7 @@
             <?= anchor('tarefas/listarTarefas','Listar tarefas', array("class" => "btn btn-primary"))?>
             <?= anchor('linguagens/linguagem','Listar linguagens', array("class" => "btn btn-primary"))?>
             <?= anchor('projetos/projeto','Listar Projetos', array("class" => "btn btn-primary"))?>
+            <?= anchor('programadores/programador','Listar programadores', array("class" => "btn btn-primary"))?>
             <?= anchor('usuarios/cadastro','Cadastrar Usuario', array("class" => "btn btn-primary"))?>
             <?= anchor('login/logout','Logout', array("class" => "btn btn-primary"))?>
         <?php else : ?>    
