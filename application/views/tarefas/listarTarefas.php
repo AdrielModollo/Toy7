@@ -28,15 +28,15 @@
                     <td><?=$tarefa["Codigo"] ?></td>
                     <td><?=$tarefa["Nome"] ?></td>
                     <td><?=$tarefa["Comando"] ?></td>
-                    <td><?=$tarefa["Periodicidade"] ?></td>
+                    <td><?=ucfirst($tarefa["Periodicidade"])?></td>
                     <td><?=$tarefa["Horario"] ?></td>
                     <td><?=$tarefa["QuantidadeMinutosEsperadoExecucao"] ?></td>
-                    <td><?=$tarefa["StatusTarefa"] ?></td>
+                    <td><?=ucfirst($tarefa["StatusTarefa"]) ?></td>
                     <td><?=$tarefa["StatusSistema"] ?></td>
                     <td><?=$tarefa["DataCadastro"] ?></td>
-                    <td><?=$tarefa["idProjeto"] ?></td>
-                    <td><?=$tarefa["idCliente"] ?></td>
-                    <td><?=$tarefa["idLinguagem"] ?></td>
+                    <td><?=$tarefa["Projeto"] ?></td>
+                    <td><?=$tarefa["Cliente"] ?></td>
+                    <td><?=$tarefa["Linguagem"] ?></td>
                     <!--Exemplo de conversão de números em Real com Helper
                     <td><//?=numeroEmReais($tarefa["QuantidadeMinutosEsperadoExecucao"]) ?></td>
                      -->  

@@ -8,6 +8,7 @@
         <div class="container">
         <h1>Cadastro de tarefas</h1>
         <?php
+        echo validation_errors();
         echo form_open("tarefas/novo");
 
         echo form_label("Nome", "Nome");
@@ -21,86 +22,84 @@
 
         echo form_label("Comando", "Comando");
         echo form_input(array(
-            "Comando" => "Comando",
+            "name" => "Comando",
             "class" => "form-control",
             "id" => "Comando",
             "maxlength" => "255",
             "type" => "TEXT",
         ));
 
+        echo("<br />");
 
         echo form_label("Periodicidade", "Periodicidade");
-        echo form_input(array(
-            "Periodicidade" => "Periodicidade",
-            "class" => "form-control",
-            "id" => "Periodicidade",
-            "type" => "ENUM",
-        ));
+        $periodicidade = [
+            'diaria' => 'diaria',
+            'semanal' => 'semanal',
+            'mensal' => 'mensal',
+            'semestral' => 'semestral',
+            'anual' => 'anual'
+        ];
+        echo form_dropdown('Periodicidade', $periodicidade, 'diaria');
+
+        echo("<br /><br />\n");
 
         echo form_label("Horario", "Horario");
         echo form_input(array(
-            "Horario" => "Horario",
+            "name" => "Horario",
             "class" => "form-control",
             "id" => "Horario",
             "type" => "TIME",
         ));
 
-        echo form_label("QuantidadeMinutosEsperadoExecucao ", "QuantidadeMinutosEsperadoExecucao ");
+        echo form_label("QuantidadeMinutosEsperadoExecucao", "QuantidadeMinutosEsperadoExecucao");
         echo form_input(array(
-            "QuantidadeMinutosEsperadoExecucao " => "QuantidadeMinutosEsperadoExecucao ",
+            "name" => "QuantidadeMinutosEsperadoExecucao",
             "class" => "form-control",
-            "id" => "QuantidadeMinutosEsperadoExecucao ",
-            "type" => "INT",
+            "id" => "QuantidadeMinutosEsperadoExecucao",
         ));
 
-        echo form_label("StatusTarefa ", "StatusTarefa ");
-        echo form_input(array(
-            "StatusTarefa " => "StatusTarefa ",
-            "class" => "form-control",
-            "id" => "StatusTarefa ",
-            "type" => "ENUM",
-        ));
+        echo("<br />\n");
 
-        echo form_label("StatusSistema ", "StatusSistema ");
-        echo form_input(array(
-            "StatusSistema " => "StatusSistema ",
-            "class" => "form-control",
-            "id" => "StatusSistema ",
-            "type" => "TINYINT",
-        ));
+        echo form_label("Processo", "StatusTarefa");
+        $statusTarefa = [
+            'parado' => 'Parado',
+            'executando' => 'Executando',
+            'travado' => 'Travado',
+        ];
+        echo form_dropdown('StatusTarefa', $statusTarefa, 'executando');
 
-        echo form_label("DataCadastro ", "DataCadastro ");
-        echo form_input(array(
-            "DataCadastro " => "DataCadastro ",
-            "class" => "form-control",
-            "id" => "DataCadastro ",
-            "type" => "DATETIME",
-        ));
+        echo("<br /><br />\n");
 
-        echo form_label("idProjeto ", "idProjeto ");
-        echo form_input(array(
-            "idProjeto " => "idProjeto ",
-            "class" => "form-control",
-            "idProjeto" => "idProjeto ",
-            "type" => "INT",
-        ));
+        echo form_label("Status da Tarefa ", "StatusSistema ");
+        $statusSistema = [
+            0 => 'Inativo',
+            1 => 'Ativo',
+        ];
+        echo form_dropdown('StatusSistema', $statusSistema, 'ativo');
 
-        echo form_label("idCliente ", "idCliente ");
-        echo form_input(array(
-            "idCliente " => "idCliente ",
-            "class" => "form-control",
-            "idCliente" => "idCliente ",
-            "type" => "INT",
-        ));
+        echo("<br /><br />\n");
 
-        echo form_label("idLinguagem ", "idLinguagem ");
-        echo form_input(array(
-            "idLinguagem " => "idLinguagem ",
-            "class" => "form-control",
-            "idLinguagem" => "idLinguagem ",
-            "type" => "option",
-        ));
+        echo form_label("Data de Cadastro", "DataCadastro");
+        $DataCadastro = date('d/m/Y H:i');
+        echo $DataCadastro;
 
+        echo("<br /><br />\n");
+
+        echo form_label("Projeto", "idProjeto");
+        echo form_dropdown('idProjeto', $projetos);
+
+        echo("<br /><br />\n");
+
+        echo form_label("Cliente", "idCliente");
+        echo form_dropdown('idCliente', $clientes);
+
+        echo("<br /><br />\n");
+
+        echo form_label("Linguagem", "idLinguagem");
+        echo form_dropdown('idLinguagem', $linguagens);
+
+        echo("<br /><br />\n");
+        
         echo form_button(array(
             "class" => "btn btn-primary",
             "content" => "Cadastrar",

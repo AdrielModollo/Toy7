@@ -5,6 +5,7 @@
     </head>
     <body>
     <div class="container">
+    <?= anchor('inicio/index','Voltar', array("class" => "btn btn-primary"))?>
     <table class="table">   
         <tr>
             <th>Codigo</th>
@@ -27,7 +28,6 @@
             <h1>Cadastro de Clientes</h1>
             <?php
                 echo form_open("clientes/cadastroCliente");
-
                 echo form_label("Nome", "Nome");    
                 echo form_input(array(
                 "name" => "Nome",
@@ -45,14 +45,12 @@
                 ));
 
                 echo form_label("status", "status");
-                echo form_input(array(
-                    "status" => "status",
-                    "class" => "form-control",
-                    "id" => "status",
-                    "type" => "ENUM ('ativo','inativo')",
-                ));
+                $options = [
+                    'ativo' => 'Ativo',
+                    'inativo' => 'Inativo'
+                ];
+                echo form_dropdown('status', $options, 'large');
         
-
                 echo form_button(array(
                     "class" => "btn btn-primary",
                     "content" => "Cadastrar",

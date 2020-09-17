@@ -5,6 +5,8 @@
         </head>
         <body>
         <div class="container">
+        <?= anchor('inicio/index','Voltar', array("class" => "btn btn-primary"))?>
+        <?= anchor('sistemas/formulario','Sistema Novo', array("class" => "btn btn-primary"))?>
             <table class="table">
                
                 <tr>
@@ -16,10 +18,10 @@
 
                 <tr>
                 <?php foreach($sistemas as $sistema) : ?>
-                    <td><?=$sistema["codigo"] ?></td>
-                    <td><?=$sistema["idProjeto"] ?></td>
-                    <td><?=$sistema["idProgramador"] ?></td>
-                    <td><?=$sistema["cliente_Codigo"] ?></td>
+                    <td><?=$sistema["Codigo"] ?></td>
+                    <td><?=$sistema["Projeto"] ?></td>
+                    <td><?=$sistema["Programador"] ?></td>
+                    <td><?=$sistema["Cliente"] ?></td>
                 </tr>
            
             <?php endforeach ?>
