@@ -14,4 +14,21 @@ class Programadores extends CI_Controller{
 		}
 	}
 
+	public function cadastroProgramador() {
+		if($this->session->userdata("usuario_logado")) {
+			$programador = array(
+				"Nome" => $this->input->post("Nome"),
+			);
+			
+			$this->load->model("programadores_model");
+			$this->programadores_model->salva($programador);
+			$this->load->view("programadores/programador.php");
+
+			redirect("programadores/programador", "refresh");
+			
+		} else {
+			redirect("inicio/index", "refresh");
+			}
+		}
+
 }

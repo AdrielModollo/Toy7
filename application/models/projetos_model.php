@@ -5,6 +5,6 @@ class Projetos_model extends CI_Model {
     }
 
     public function salva($projeto) {
-    	$this->db->insert("projeto", $projeto);
+    	$this->db->insert("projetos", $projeto);
  	}
 }

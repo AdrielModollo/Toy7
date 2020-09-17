@@ -5,7 +5,9 @@
         </head>
         <body>
         <div class="container">
-        <table class="table">           
+        <table class="table">   
+        <?= anchor('inicio/index','Voltar', array("class" => "btn btn-primary"))?>
+        <?= anchor('tarefas/formulario','Nova Tarefa', array("class" => "btn btn-primary"))?>        
                 <tr>
                     <th>Codigo</th>
                     <th>Nome</th>

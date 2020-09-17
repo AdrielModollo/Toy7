@@ -14,4 +14,23 @@ class Projetos extends CI_Controller{
 		}
 	}
 
+	public function cadastroProjeto() {
+		if($this->session->userdata("usuario_logado")) {
+			$projeto = array(
+				"Nome" => $this->input->post("Nome"),
+				"Descricao" => $this->input->post("Descricao"),
+			);
+			
+			$this->load->model("projetos_model");
+			$this->projetos_model->salva($projeto);
+			$this->load->view("projetos/projeto.php");
+
+			redirect("projetos/projeto", "refresh");
+			
+		} else {
+			redirect("inicio/index", "refresh");
+			}
+		}
+
+
 }

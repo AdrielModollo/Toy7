@@ -14,4 +14,23 @@ class Linguagens extends CI_Controller{
 		}
 	}
 
-}
+	public function cadastroLinguagem () {
+		if($this->session->userdata("usuario_logado")) {
+			$linguagem = array(
+				"Nome" => $this->input->post("Nome"),
+			);
+			
+			$this->load->model("linguagens_model");
+			$this->linguagens_model->salva($linguagem);
+			$this->load->view("linguagens/linguagem.php");
+
+			redirect("linguagens/linguagem", "refresh");
+			
+		} else {
+			redirect("inicio/index", "refresh");
+			}
+		}
+
+	}
+
+

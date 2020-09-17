@@ -4,6 +4,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
     </head>
     <body>
+    <?= anchor('inicio/index','Voltar', array("class" => "btn btn-primary"))?>
         <div class="container">
         <h1>Cadastro de tarefas</h1>
         <?php

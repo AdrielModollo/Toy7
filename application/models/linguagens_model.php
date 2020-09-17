@@ -5,6 +5,6 @@ class Linguagens_model extends CI_Model {
     }
 
     public function salva($linguagem) {
-    	$this->db->insert("linguagem", $linguagem);
+    	$this->db->insert("linguagens", $linguagem);
  	}
 }

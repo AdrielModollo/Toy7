@@ -5,6 +5,6 @@ class Clientes_model extends CI_Model {
     }
 
     public function salva($cliente) {
-    	$this->db->insert("cliente", $cliente);
+    	$this->db->insert("clientes", $cliente);
  	}
 }

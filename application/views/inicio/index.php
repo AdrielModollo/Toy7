@@ -14,14 +14,13 @@
             
 
         <?php if($this->session->userdata("usuario_logado")) : ?>
-            <?= anchor('tarefas/formulario','Nova tarefa', array("class" => "btn btn-primary"))?>
-            <?= anchor('sistemas/sistema','Listar Sistemas', array("class" => "btn btn-primary"))?>
-            <?= anchor('clientes/cliente','Listar Clientes', array("class" => "btn btn-primary"))?>
-            <?= anchor('tarefas/listarTarefas','Listar tarefas', array("class" => "btn btn-primary"))?>
-            <?= anchor('linguagens/linguagem','Listar linguagens', array("class" => "btn btn-primary"))?>
-            <?= anchor('projetos/projeto','Listar Projetos', array("class" => "btn btn-primary"))?>
-            <?= anchor('programadores/programador','Listar programadores', array("class" => "btn btn-primary"))?>
-            <?= anchor('usuarios/cadastro','Cadastrar Usuario', array("class" => "btn btn-primary"))?>
+            <?= anchor('sistemas/sistema','Sistemas', array("class" => "btn btn-primary"))?>
+            <?= anchor('clientes/cliente','Clientes', array("class" => "btn btn-primary"))?>
+            <?= anchor('tarefas/listarTarefas','Tarefas', array("class" => "btn btn-primary"))?>
+            <?= anchor('linguagens/linguagem','linguagens', array("class" => "btn btn-primary"))?>
+            <?= anchor('projetos/projeto','Projetos', array("class" => "btn btn-primary"))?>
+            <?= anchor('programadores/programador','Programadores', array("class" => "btn btn-primary"))?>
+            <?= anchor('usuarios/cadastro','Usuarios', array("class" => "btn btn-primary"))?>
             <?= anchor('login/logout','Logout', array("class" => "btn btn-primary"))?>
         <?php else : ?>    
             <h1> Login</h1>

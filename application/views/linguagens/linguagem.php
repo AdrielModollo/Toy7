@@ -5,7 +5,10 @@
         </head>
         <body>
         <div class="container">
-        <table class="table">   
+        <table class="table">  
+            
+        <?= anchor('inicio/index','Voltar', array("class" => "btn btn-primary"))?>
+
             <table class="table">
                
                 <tr>
@@ -21,6 +24,28 @@
            
             <?php endforeach ?>
             </table>
+            
+            <h1>Cadastro de Linguagens</h1>
+            <?php
+                echo form_open("linguagens/cadastroLinguagem");
+
+                echo form_label("Nome", "Nome");    
+                echo form_input(array(
+                "name" => "Nome",
+                "id" => "Nome",
+                "class" => "form-control",
+                "maxlength" => "255"
+                ));
+
+                echo form_button(array(
+                    "class" => "btn btn-primary",
+                    "content" => "Cadastrar",
+                    "type" => "submit"
+                ));
+
+                echo form_close();
+                ?>
+        
         <div>
     </body>
 </html>
