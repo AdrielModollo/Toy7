@@ -1,4 +1,5 @@
 <?php
+
 class Clientes extends CI_Controller{
 
 	public function __construct(){
@@ -18,19 +19,35 @@ class Clientes extends CI_Controller{
 	} 
 	
 	public function cadastroCliente () {
+		$cliente = array(
+			"Nome" => $this->input->post("Nome"),
+			"Servidor" => $this->input->post("Servidor"),
+			"status" => $this->input->post("status"),
+		);
+		
+		$this->clientes_model->salva($cliente);
+		$this->load->view("clientes/cliente.php");
+
+		redirect("clientes/cliente", "refresh");
+	}
+
+	public function delete($Codigo) {
+		$this->clientes_model->excluir($Codigo);
+		$this->load->view("clientes/cliente.php");
+
+		redirect("clientes/cliente", "refresh");
+		}
+
+		public function editar_cadastro($Nome, $Servidor, $Status) {
 			$cliente = array(
 				"Nome" => $this->input->post("Nome"),
 				"Servidor" => $this->input->post("Servidor"),
-				"status" => $this->input->post("status"),
+				"Status" => $this->input->post("Status"),
 			);
 			
-			$this->clientes_model->salva($cliente);
-			$this->load->view("clientes/cliente.php");
-
+			$this->clientes_model->atualizar($Nome, $Servidor, $Status);    
+			$this->load->view("clientes/editar_cadastro.php");
+	
 			redirect("clientes/cliente", "refresh");
-			
+			}
 		}
-
-}
-
-

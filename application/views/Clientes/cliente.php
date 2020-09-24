@@ -20,6 +20,18 @@
             <td><?=$cliente["Nome"] ?></td>
             <td><?=$cliente["Servidor"] ?></td>
             <td><?=$cliente["status"] ?></td>
+            <td>
+                <form method="POST" action="delete/<?=  $cliente["Codigo"]; ?>">
+                    <input type="hidden" name="clientes_codigo" value="<?= $cliente["Codigo"]; ?>">
+                    <input type="submit" value="Excluir clientes">
+                </form>
+            </td>
+            <td>
+                <form method="POST" action="editar_cadastro/<?=  $cliente["Codigo"]; ?>">
+                    <input type="hidden" name="clientes_codigo" value="<?= $cliente["Codigo"]; ?>">
+                    <input type="submit" value="Alterar Cadastro">
+                </form>
+            </td>
         </tr>
     
     <?php endforeach ?>

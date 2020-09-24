@@ -22,10 +22,19 @@
                     <td><?=$sistema["Projeto"] ?></td>
                     <td><?=$sistema["Programador"] ?></td>
                     <td><?=$sistema["Cliente"] ?></td>
+                    <td> 
+                    <form method="POST" action="delete/<?=  $sistema["Codigo"]; ?>">
+                        <input type="hidden" name="sistema_codigo" value="<?= $sistema["Codigo"]; ?>">
+                        <input type="submit" value="Excluir Vinculo">
+                    </form>
+                    </td>
                 </tr>
            
             <?php endforeach ?>
             </table>
+           
+           
+           
         <div>
     </body>
 </html>

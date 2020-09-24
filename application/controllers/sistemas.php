@@ -9,15 +9,24 @@ class Sistemas extends CI_Controller{
 		$this->load->model("sistemas_model");
 		$this->load->model('programadores_model');   
 		$this->load->model('projetos_model');
-		$this->load->model('clientes_model');   
+		$this->load->model('clientes_model');
+		$this->load->model('tarefas_model');      
 	}
 
 	public function sistema () {
 		$sistemas = $this->sistemas_model->buscaTodos();
 
         $dados = array("sistemas" => $sistemas);
-		$this->load->view("sistemas/sistema.php", $dados);
+		$this->load->view("sistemas/sistema.php", $dados);		
 	} 
+
+	public function registro () {
+		$registros = $this->sistemas_model->registrosAtivos();
+
+        $dados = array("registrosAtivos" => $registrosAtivos);
+		$this->load->view("sistemas/sistema.php", $dados);		
+	} 
+
 
 	public function formulario() {
 	$projetos = $this->projetos_model->buscaCodigoNome();
@@ -48,6 +57,15 @@ class Sistemas extends CI_Controller{
 
 	    redirect("sistemas/sistema");
 	}
+
+	public function delete($Codigo) {
+		$this->sistemas_model->excluir($Codigo);
+		$this->load->view("sistemas/sistema.php");
+		
+
+		redirect("sistemas/sistema", "refresh");
+		}
+
 }
 
 

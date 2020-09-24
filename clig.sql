@@ -80,12 +80,24 @@ CREATE TABLE Linguagens (
 /* Este select é foi feito para exibir o nome de cada cliente, sistema ou linguagem ao invés de mostrar o código. 
 
 
-SELECT t.Codigo, t.Nome, t.Comando, t.Periodicidade, t.Horario, t.QuantidadeMinutosEsperadoExecucao, t.StatusTarefa, 
-t.StatusSistema, t.DataCadastro, c.nome as 'Cliente', l.nome as 'linguagem', pj.nome as 'Sistema'
+SELECT 
+t.Codigo, 
+t.Nome, 
+t.Comando, 
+t.Periodicidade,
+t.Horario, 
+t.QuantidadeMinutosEsperadoExecucao, 
+CONCAT(UCASE(LEFT(t.StatusTarefa, 1)), SUBSTRING(t.StatusTarefa, 2)) as 'Status Tarefa',
+t.StatusSistema, 
+t.DataCadastro, 
+c.nome as 'Cliente',
+l.nome as 'linguagem', 
+pj.nome as 'Sistema'
 FROM tarefas t
 INNER JOIN clientes c on  c.codigo = t.idCliente
 INNER JOIN projetos pj on pj.codigo = t.IdProjeto
 INNER JOIN linguagens l on l.codigo = t.idLinguagem
+
 
 */
 

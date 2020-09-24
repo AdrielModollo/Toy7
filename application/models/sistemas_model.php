@@ -7,9 +7,30 @@ class Sistemas_model extends CI_Model {
         $this->db->join('projetos pj', 'pj.codigo = s.idProjeto');
         $this->db->join('programador p', 'p.codigo = s.idProgramador');
         $this->db->join('clientes c', 'c.codigo = s.cliente_Codigo');
+        $this->db->join('tarefas t', 't.codigo = s.idProjeto');
+        $this->db->where('t.StatusSistema = 1');
         $sistemas = $this->db->get()->result_array();
 
         return $sistemas;
+    }
+
+    public function registrosAtivos() {
+        $this->db->select('count(t.StatusSistema) as Registros');
+        $this->db->from('sistema s');
+        $this->db->join('tarefas t', 't.codigo = s.idProjeto');
+        $this->db->where('t.StatusSistema = 1');
+        $registros = $this->db->get()->result_array();
+
+        return $registros;
+    }
+
+    
+    public function excluir($Codigo)
+    {
+        $this->db->where('Codigo', $Codigo);
+        $sql =  $this->db->delete('sistema');
+       
+        return $sql;       
     }
 
 
