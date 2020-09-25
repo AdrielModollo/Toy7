@@ -6,6 +6,7 @@
     <body>
     <div class="container">
     <?= anchor('inicio/index','Voltar', array("class" => "btn btn-primary"))?>
+    
     <table class="table">   
         <tr>
             <th>Codigo</th>
@@ -22,16 +23,14 @@
             <td><?=$cliente["status"] ?></td>
             <td>
                 <form method="POST" action="delete/<?=  $cliente["Codigo"]; ?>">
-                    <input type="hidden" name="clientes_codigo" value="<?= $cliente["Codigo"]; ?>">
-                    <input type="submit" value="Excluir clientes">
+                    <input type="hidden" name="delete" value="<?= $cliente["Codigo"]; ?>">
+                    <input class="btn btn-danger" type="submit" value="Excluir clientes">
                 </form>
             </td>
-            <td>
-                <form method="POST" action="editar_cadastro/<?=  $cliente["Codigo"]; ?>">
+            <td> <form method="POST" action="alterar/<?=  $cliente["Codigo"]; ?>">
                     <input type="hidden" name="clientes_codigo" value="<?= $cliente["Codigo"]; ?>">
-                    <input type="submit" value="Alterar Cadastro">
+                    <input class="btn btn-primary" type="submit" value="Alterar clientes">
                 </form>
-            </td>
         </tr>
     
     <?php endforeach ?>

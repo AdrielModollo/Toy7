@@ -30,14 +30,19 @@ class Clientes_model extends CI_Model {
          return $sql;       
      }
 
-     public function atualizar($Nome, $Servidor, $Status) {
-        $this->db->SET('Nome', 'Nome = Nome');
-        $this->db->SET('Servidor', 'Servidor = Servidor');
-        $this->db->SET('status', 'Status = status'); 
-        $this->db->where('Codigo', $Codigo);
-        $sql = $this->db->update('clientes');
+     public function atualizar($Codigo)
 
-        return $sql;
+     {
+         $this->db->where('Codigo', $Codigo);
+         $query = $this->db->get('clientes');
+         return $query->row();
+     }
+
+    public function updateC($data, $Codigo)
+    {
+    $this->db->where('Codigo', $Codigo);
+    $this->db->update('clientes',$data); 
     }
+     
  
 }

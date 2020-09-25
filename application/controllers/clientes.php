@@ -38,16 +38,27 @@ class Clientes extends CI_Controller{
 		redirect("clientes/cliente", "refresh");
 		}
 
-		public function editar_cadastro($Nome, $Servidor, $Status) {
-			$cliente = array(
-				"Nome" => $this->input->post("Nome"),
-				"Servidor" => $this->input->post("Servidor"),
-				"Status" => $this->input->post("Status"),
-			);
-			
-			$this->clientes_model->atualizar($Nome, $Servidor, $Status);    
-			$this->load->view("clientes/editar_cadastro.php");
 	
-			redirect("clientes/cliente", "refresh");
-			}
+		public function alterar($Codigo)
+
+		{
+			$row = $this->clientes_model->atualizar($Codigo);
+			$data['dados'] = $row;
+			$this->load->view("clientes/alterar.php", $data);
 		}
+		
+		public function updateDados() {
+				 $data = array(
+   
+					"Nome" => $this->input->post("Nome"),
+					"Servidor" => $this->input->post("Servidor"),
+					"status" => $this->input->post("status"),
+				 
+				 );
+
+				 $this->clientes_model->updateC($data, $this->input->post('Codigo'));		
+				 redirect('clientes/cliente');
+		}
+
+	
+}
