@@ -29,6 +29,26 @@ class Linguagens extends CI_Controller{
 			
 		} 
 
+
+		public function alterar($Codigo)
+
+		{
+			$row = $this->linguagens_model->atualizar($Codigo);
+			$data['dados'] = $row;
+			$this->load->view("linguagens/alterar.php", $data);
+		}
+		
+		public function updateDados() {
+				 $data = array(
+   
+					"Nome" => $this->input->post("Nome"),
+				 
+				 );
+
+				 $this->linguagens_model->updateL($data, $this->input->post('Codigo'));		
+				 redirect('linguagens/linguagem');
+		}
+
 	}
 
 

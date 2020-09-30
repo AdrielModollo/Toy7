@@ -20,7 +20,12 @@
                 <?php foreach($linguagens as $linguagem) : ?>
                     <td><?=$linguagem["Codigo"] ?></td>
                     <td><?=$linguagem["Nome"] ?></td>
+                    <td> <form method="POST" action="alterar/<?=  $linguagem["Codigo"]; ?>">
+                    <input type="hidden" name="linguagens_codigo" value="<?= $linguagem["Codigo"]; ?>">
+                    <input class="btn btn-primary" type="submit" value="Alterar Linguagem">
+                    </form>
                 </tr>
+            </tr>
            
             <?php endforeach ?>
             </table>

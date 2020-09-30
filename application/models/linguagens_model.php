@@ -20,5 +20,19 @@ class Linguagens_model extends CI_Model {
 
     public function salva($linguagem) {
     	$this->db->insert("linguagens", $linguagem);
- 	}
+     }
+     
+     public function atualizar($Codigo)
+
+     {
+         $this->db->where('Codigo', $Codigo);
+         $query = $this->db->get('linguagens');
+         return $query->row();
+     }
+
+    public function updateL($data, $Codigo)
+    {
+    $this->db->where('Codigo', $Codigo);
+    $this->db->update('linguagens',$data); 
+    }
 }
